@@ -23,7 +23,6 @@
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/scopedcss/Components/Layout/ReconnectModal.razor.rz.scp.css
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/scopedcss/bundle/Acme.Web.styles.css
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/scopedcss/projectbundle/Acme.Web.bundle.scp.css
-/Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/compressed/l4w5x1kx8x-{0}-w7mf952350-w7mf952350.gz
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/compressed/4asxuzzog2-{0}-bqjiyaj88i-bqjiyaj88i.gz
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/compressed/ndpiuyepxk-{0}-c2jlpeoesf-c2jlpeoesf.gz
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/compressed/qd218e8g4l-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -129,3 +128,4 @@
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/Acme.Web.csproj.AssemblyReference.cache
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/Acme.Web.sourcelink.json
 /Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/Acme.Web.csproj.Up2Date
+/Users/mri/Acme.Draw/src/Acme.Web/obj/Debug/net10.0/compressed/l4w5x1kx8x-{0}-tvo5av2czy-tvo5av2czy.gz

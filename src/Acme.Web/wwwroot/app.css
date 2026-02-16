@@ -5,7 +5,9 @@ html, body {
 a, .btn-link {
     color: #006bb7;
 }
-
+.navbar-nav {
+    align-items: center;
+}
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
