@@ -1,0 +1,18 @@
+@page "/allsubs"
+@inject ISubmissionRepository SubmissionRepo
+
+@foreach (var a in Submissions!)
+{
+    <h1>@a.FirstName</h1> <p>@a.SerialCode</p>
+}
+
+@code {
+    IEnumerable<Submission>? Submissions { get; set; }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Submissions = await SubmissionRepo.GetAllSubmissionsAsync();
+    }
+
+    
+}
