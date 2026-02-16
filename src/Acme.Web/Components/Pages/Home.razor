@@ -11,6 +11,7 @@
                 <div class="card-body">
                     <h3 class="card-title mb-4">Enter the Prize Draw</h3>
                     <p class="text-muted">You must be at least 18 years old and have a valid product serial number.</p>
+                    <p class="text-info">You can enter the draft 2 times with a valid serial number.</p>
 
                     @if (!string.IsNullOrEmpty(_message))
                     {
@@ -44,7 +45,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="serial" class="form-label">Product Serial Number</label>
+                            <label for="serial" class="form-label">Serial Number</label>
                             <InputText id="serial" class="form-control" @bind-Value="FormData.SerialNumber" />
                         </div>
 
@@ -75,7 +76,7 @@
             {
                 _message = "Your entry has been submitted successfully!";
                 _alertClass = "alert-success";
-                FormData = new(); // reset
+                FormData = new(); 
             }
             else
             {
