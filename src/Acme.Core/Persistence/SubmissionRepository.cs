@@ -1,6 +1,7 @@
 using Acme.Core.Data;
 using Acme.Core.Interfaces;
 using Acme.Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Acme.Core.Persistence;
 
@@ -13,23 +14,23 @@ public class SubmissionRepository : ISubmissionRepository
         _dbContext = dbContext;
     }
 
-    public Task AddSubmissionAsync(Submission submission)
+    public async Task AddSubmissionAsync(Submission submission)
     {
-        throw new NotImplementedException();
+            _dbContext.Submissions!.Add(submission);
+
+            await _dbContext.SaveChangesAsync();
     }
 
-    public Task<int> GetSubmissionsCountAsync(string serial)
+    public async Task<int> GetSubmissionsCountAsync(string serial)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Submissions!.CountAsync(s => s.SerialCode == serial);
     }
 
-    public Task<bool> SubmissionExistsAsync(string serial)
+    public async Task<bool> SerialExistsAsync(string serial)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<Submission> GetSubmissionAsync(int id)
-    {
-        throw new NotImplementedException();
+        if (await _dbContext.Submissions!.AnyAsync(s => s.SerialCode == serial))
+            return await Task.FromResult(true);
+        
+        return await Task.FromResult(false);
     }
 }
