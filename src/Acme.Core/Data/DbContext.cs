@@ -1,4 +1,4 @@
-﻿namespace Acme.Core;
+﻿namespace Acme.Core.Data;
 
 public class DbContext
 {
