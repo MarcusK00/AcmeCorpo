@@ -1,7 +1,93 @@
 ﻿@page "/"
+@inject ISubmissionService SubmissionService
 
-<PageTitle>Home</PageTitle>
+@inject HttpClient Http
 
-<h1>Hello, world!</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
 
-Welcome to your new app.
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Enter the Prize Draw</h3>
+                    <p class="text-muted">You must be at least 18 years old and have a valid product serial number.</p>
+
+                    @if (!string.IsNullOrEmpty(_message))
+                    {
+                        <div class="alert @_alertClass" role="alert">
+                            @_message
+                        </div>
+                    }
+
+                    <EditForm Model="FormData" OnValidSubmit="HandleSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <InputText id="firstName" class="form-control" @bind-Value="FormData.FirstName" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <InputText id="lastName" class="form-control" @bind-Value="FormData.LastName" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <InputText id="email" type="email" class="form-control" @bind-Value="FormData.Email" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <InputDate id="dob" class="form-control" @bind-Value="FormData.DateOfBirth" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="serial" class="form-label">Product Serial Number</label>
+                            <InputText id="serial" class="form-control" @bind-Value="FormData.SerialNumber" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Submit Entry
+                        </button>
+                    </EditForm>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@code {
+    private SubmissionDto FormData = new();
+    private string? _message;
+    private string _alertClass = "alert-success";
+
+    private async Task HandleSubmit()
+    {
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/submissions", FormData);
+
+            if (response.IsSuccessStatusCode)
+            {
+                _message = "Your entry has been submitted successfully!";
+                _alertClass = "alert-success";
+                FormData = new(); // reset
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                _message = error;
+                _alertClass = "alert-danger";
+            }
+        }
+        catch (Exception ex)
+        {
+            _message = $"An error occurred: {ex.Message}";
+            _alertClass = "alert-danger";
+        }
+    }
+}
