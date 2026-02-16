@@ -1,6 +1,7 @@
 using Acme.Core.Data;
 using Acme.Core.Interfaces;
 using Acme.Core.Persistence;
+using Acme.Core.Services;
 using Acme.Web.Components;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ builder.Services.AddDbContext<AcmeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<ISubmissionRepository, SubmissionRepository>();
+builder.Services.AddScoped<ISubmissionService, SubmissionService>();
 
 // For controllers + API endpoints
 builder.Services.AddControllers(); 
