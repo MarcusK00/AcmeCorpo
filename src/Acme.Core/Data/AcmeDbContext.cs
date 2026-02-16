@@ -9,4 +9,11 @@ public class AcmeDbContext : DbContext
     public DbSet<SerialNumber>? SerialNumbers { get; set; }
 
     public AcmeDbContext(DbContextOptions<AcmeDbContext> options) : base(options){}
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<SerialNumber>()
+            .HasIndex(s => s.Code)
+            .IsUnique();
+    }
 }
