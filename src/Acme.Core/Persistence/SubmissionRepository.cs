@@ -33,4 +33,9 @@ public class SubmissionRepository : ISubmissionRepository
         
         return await Task.FromResult(false);
     }
+
+    public async Task<IEnumerable<Submission>> GetAllSubmissionsAsync()
+    {
+        return await _dbContext.Submissions!.ToListAsync();
+    }
 }
