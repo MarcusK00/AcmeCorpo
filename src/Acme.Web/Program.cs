@@ -1,6 +1,21 @@
+using Acme.Core.Data;
+using Acme.Core.Interfaces;
+using Acme.Core.Persistence;
 using Acme.Web.Components;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<AcmeDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ISubmissionRepository, SubmissionRepository>();
+
+// For controllers + API endpoints
+builder.Services.AddControllers(); 
+builder.Services.AddRazorPages();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
