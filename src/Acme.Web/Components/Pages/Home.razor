@@ -20,7 +20,7 @@
                         </div>
                     }
 
-                    <EditForm Model="FormData" OnValidSubmit="HandleSubmit">
+                    <EditForm FormName="SubmissionForm" Model="FormData" OnValidSubmit="HandleSubmit">
                         <DataAnnotationsValidator />
                         <ValidationSummary />
 
@@ -62,7 +62,7 @@
 </div>
 
 @code {
-    private SubmissionDto FormData = new();
+    public SubmissionDto FormData = new();
     private string? _message;
     private string _alertClass = "alert-success";
 
