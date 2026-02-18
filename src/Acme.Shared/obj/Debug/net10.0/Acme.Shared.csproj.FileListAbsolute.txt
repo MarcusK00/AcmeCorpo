@@ -1,0 +1,12 @@
+/Users/mri/Acme.Draw/src/Acme.Shared/bin/Debug/net10.0/Acme.Shared.deps.json
+/Users/mri/Acme.Draw/src/Acme.Shared/bin/Debug/net10.0/Acme.Shared.dll
+/Users/mri/Acme.Draw/src/Acme.Shared/bin/Debug/net10.0/Acme.Shared.pdb
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/Acme.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/Acme.Shared.AssemblyInfoInputs.cache
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/Acme.Shared.AssemblyInfo.cs
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/Acme.Shared.csproj.CoreCompileInputs.cache
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/Acme.Shared.sourcelink.json
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/Acme.Shared.dll
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/refint/Acme.Shared.dll
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/Acme.Shared.pdb
+/Users/mri/Acme.Draw/src/Acme.Shared/obj/Debug/net10.0/ref/Acme.Shared.dll
