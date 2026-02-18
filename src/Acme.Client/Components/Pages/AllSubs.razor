@@ -1,23 +1,22 @@
 @page "/allsubs"
-@inject ISubmissionRepository SubmissionRepo
+@inject ISubmissionApiService ApiService
 
 @if (Submissions != null)
 {
     @foreach (var a in Submissions)
     {
-        <h1>@a.FirstName</h1> <p>@a.SerialCode</p>
+        <h1>@a.FirstName</h1> <p>@a.SerialNumber</p>
     }
 }
 <p>No Forms</p>
 
 
 @code {
-    IEnumerable<Submission>? Submissions { get; set; }
+    List<SubmissionDto>? Submissions { get; set; }
     
-    //Not really sure if I need to do this async or not...
     protected override async Task OnInitializedAsync()
     {
-        Submissions = await SubmissionRepo.GetAllSubmissionsAsync();
+        Submissions = await ApiService.GetAllAsync();
     }
 
     
