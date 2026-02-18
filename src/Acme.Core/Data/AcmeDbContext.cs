@@ -15,5 +15,7 @@ public class AcmeDbContext : DbContext
         modelBuilder.Entity<SerialNumber>()
             .HasIndex(s => s.Code)
             .IsUnique();
+        
+       
     }
 }
