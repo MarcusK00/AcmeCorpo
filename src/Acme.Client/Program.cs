@@ -3,18 +3,17 @@ using Acme.Core.Interfaces;
 using Acme.Core.Persistence;
 using Acme.Core.Services;
 using Acme.Web.Components;
+using Acme.Web.Interfaces;
+using Acme.Web.Services;
 using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient();
-
-builder.Services.AddDbContext<AcmeDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<ISubmissionRepository, SubmissionRepository>();
-builder.Services.AddScoped<ISubmissionService, SubmissionService>();
+builder.Services.AddHttpClient<ISubmissionApiService, SubmissionApiService>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5093/"); 
+});
 
 // For controllers + API endpoints
 builder.Services.AddControllers(); 
