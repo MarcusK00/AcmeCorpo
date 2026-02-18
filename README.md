@@ -9,7 +9,7 @@ This project follows a layered architecture pattern:
 - **Acme.Web** - Blazor Server web application (frontend)
 - **Acme.Api** - ASP.NET Core Web API (backend API)
 - **Acme.Core** - Business logic, services, data access, and EF Core
-- **Acme.Shared** - Shared models and DTOs
+- **Acme.Shared** - Shared models
 - **Acme.Tests** - Unit tests
 
 ## 📋 Prerequisites
