@@ -1,7 +1,5 @@
 ﻿@page "/"
-@inject ISubmissionService SubmissionService
-
-@inject HttpClient Http
+@inject ISubmissionApiService ApiService
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -62,28 +60,24 @@
 </div>
 
 @code {
-    public SubmissionDto FormData = new();
+    [SupplyParameterFromForm] 
+    public SubmissionDto? FormData { get; set; }
     private string? _message;
     private string _alertClass = "alert-success";
 
+    protected override void OnInitialized()
+    {
+        FormData = new();
+    }
+    
     private async Task HandleSubmit()
     {
         try
         {
-            var response = await Http.PostAsJsonAsync("api/submissions", FormData);
-
-            if (response.IsSuccessStatusCode)
-            {
-                _message = "Your entry has been submitted successfully!";
-                _alertClass = "alert-success";
-                FormData = new(); 
-            }
-            else
-            {
-                var error = await response.Content.ReadAsStringAsync();
-                _message = error;
-                _alertClass = "alert-danger";
-            }
+            await ApiService.SubmitAsync(FormData);
+            _message = "Your entry has been submitted successfully!";
+            _alertClass = "alert-success";
+            FormData = new();
         }
         catch (Exception ex)
         {
