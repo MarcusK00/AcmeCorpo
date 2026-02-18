@@ -28,7 +28,7 @@ public class SubmissionRepository : ISubmissionRepository
 
     public async Task<bool> SerialExistsAsync(string serial)
     {
-        if (await _dbContext.Submissions!.AnyAsync(s => s.SerialCode == serial))
+        if (await _dbContext.SerialNumbers!.AnyAsync(s => s.Code == serial))
             return await Task.FromResult(true);
         
         return await Task.FromResult(false);
