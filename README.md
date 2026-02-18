@@ -16,6 +16,9 @@ This project follows a layered architecture pattern:
 
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) (for SQL Server)
+- Install EF Core CLI tools (one-time setup):
+  ```bash
+  dotnet tool install --global dotnet-ef
 
 ## 🐳 Docker SQL Server Setup
 
@@ -23,11 +26,13 @@ This application uses a Docker container for SQL Server instead of a local insta
 
 # Getting Started
 
+### 1. Clone and Restory Repository
+
 1. Clone the repository: `git clone https://github.com/MarcusK00/AcmeCorpo.git`
 2. Navigate to the project: `cd AcmeCorpo`
 3. Restore NuGet packages: `dotnet restore`
    
-### 1. Start the SQL Server Container
+### 2. Start the SQL Server Container
 
 Run this command to create and start the SQL Server container:
 
@@ -43,7 +48,7 @@ This command:
 - Names the container `acme-sql`
 - Runs SQL Server 2022 in detached mode
 
-### 2. Verify the Container is Running
+### 3. Verify the Container is Running
 
 ```bash
 docker ps
