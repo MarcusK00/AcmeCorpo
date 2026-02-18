@@ -1760,6 +1760,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "Acme.Shared": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.3"
         },
@@ -1768,6 +1769,16 @@
         },
         "runtime": {
           "bin/placeholder/Acme.Core.dll": {}
+        }
+      },
+      "Acme.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Acme.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Acme.Shared.dll": {}
         }
       }
     }
@@ -3948,6 +3959,11 @@
       "type": "project",
       "path": "../../src/Acme.Core/Acme.Core.csproj",
       "msbuildProject": "../../src/Acme.Core/Acme.Core.csproj"
+    },
+    "Acme.Shared/1.0.0": {
+      "type": "project",
+      "path": "../../src/Acme.Shared/Acme.Shared.csproj",
+      "msbuildProject": "../../src/Acme.Shared/Acme.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {

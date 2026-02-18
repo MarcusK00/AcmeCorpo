@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "Acme.Core/1.0.0": {
         "dependencies": {
+          "Acme.Shared": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.3",
           "Microsoft.EntityFrameworkCore.Design": "10.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.3"
@@ -904,6 +905,14 @@
             "fileVersion": "9.0.425.16305"
           }
         }
+      },
+      "Acme.Shared/1.0.0": {
+        "runtime": {
+          "Acme.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1290,6 +1299,11 @@
       "sha512": "sha512-o94k2RKuAce3GeDMlUvIXlhVa1kWpJw95E6C9LwW0KlG0nj5+SgCiIxJ2Eroqb9sLtG1mEMbFttZIBZ13EJPvQ==",
       "path": "system.security.cryptography.protecteddata/9.0.4",
       "hashPath": "system.security.cryptography.protecteddata.9.0.4.nupkg.sha512"
+    },
+    "Acme.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

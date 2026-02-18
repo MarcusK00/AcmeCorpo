@@ -13,3 +13,6 @@
 /Users/mri/Acme.Draw/src/Acme.Core/obj/Debug/net10.0/Acme.Core.pdb
 /Users/mri/Acme.Draw/src/Acme.Core/obj/Debug/net10.0/Acme.Core.genruntimeconfig.cache
 /Users/mri/Acme.Draw/src/Acme.Core/obj/Debug/net10.0/ref/Acme.Core.dll
+/Users/mri/Acme.Draw/src/Acme.Core/bin/Debug/net10.0/Acme.Shared.dll
+/Users/mri/Acme.Draw/src/Acme.Core/bin/Debug/net10.0/Acme.Shared.pdb
+/Users/mri/Acme.Draw/src/Acme.Core/obj/Debug/net10.0/Acme.Core.csproj.Up2Date

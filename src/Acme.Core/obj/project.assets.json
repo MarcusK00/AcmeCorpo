@@ -1239,6 +1239,16 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "Acme.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Acme.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Acme.Shared.dll": {}
+        }
       }
     }
   },
@@ -3618,10 +3628,16 @@
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Acme.Shared/1.0.0": {
+      "type": "project",
+      "path": "../Acme.Shared/Acme.Shared.csproj",
+      "msbuildProject": "../Acme.Shared/Acme.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Acme.Shared >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.3"
@@ -3651,7 +3667,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/mri/Acme.Draw/src/Acme.Shared/Acme.Shared.csproj": {
+              "projectPath": "/Users/mri/Acme.Draw/src/Acme.Shared/Acme.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

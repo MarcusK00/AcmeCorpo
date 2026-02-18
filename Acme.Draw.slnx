@@ -1,7 +1,9 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/Acme.Api/Acme.Api.csproj" />
     <Project Path="src/Acme.Core/Acme.Core.csproj" />
-    <Project Path="src/Acme.Web/Acme.Web.csproj" />
+    <Project Path="src/Acme.Shared/Acme.Shared.csproj" />
+    <Project Path="src\Acme.Client\Acme.Client.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Acme.Tests/Acme.Tests.csproj" />
