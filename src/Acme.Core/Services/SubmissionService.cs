@@ -44,6 +44,15 @@ public class SubmissionService : ISubmissionService
 
         return (true,null);
     }
+
+    public async Task<List<Submission>> GetAllSubmissionsAsync()
+    {
+        IEnumerable<Submission> submissions = await _submissionRepository.GetAllSubmissionsAsync();
+        if (submissions == null)
+            throw new Exception("No submissions found.");
+
+        return submissions.ToList();
+    }
     
     private static bool IsAtLeast18(DateTime dob)
     {
@@ -52,7 +61,7 @@ public class SubmissionService : ISubmissionService
 
         var birthdayThisYear = dob.AddYears(age);
 
-        if (birthdayThisYear > today) // Check if they had birthday already.
+        if (birthdayThisYear > today) // Check if user had birthday already.
         {
             age--;
         }
