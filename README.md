@@ -21,6 +21,12 @@ This project follows a layered architecture pattern:
 
 This application uses a Docker container for SQL Server instead of a local installation.
 
+# Getting Started
+
+1. Clone the repository: `git clone https://github.com/MarcusK00/AcmeCorpo.git`
+2. Navigate to the project: `cd AcmeCorpo`
+3. Restore NuGet packages: `dotnet restore`
+   
 ### 1. Start the SQL Server Container
 
 Run this command to create and start the SQL Server container:
