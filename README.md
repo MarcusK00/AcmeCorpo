@@ -6,11 +6,11 @@ ASP.NET (.NET 10) prize draw web application with EF Core, layered architecture,
 
 This project follows a layered architecture pattern:
 
-- **Acme.Client** - Blazor Server web application (frontend)
+- **Acme.Web** - Blazor Server web application (frontend)
 - **Acme.Api** - ASP.NET Core Web API (backend API)
 - **Acme.Core** - Business logic, services, data access, and EF Core
 - **Acme.Shared** - Shared models and DTOs
-- **Acme.Tests** - MSTest unit tests
+- **Acme.Tests** - Unit tests
 
 ## 📋 Prerequisites
 
@@ -45,32 +45,9 @@ docker ps
 
 You should see the `acme-sql` container in the list.
 
-### 3. Manage the Container
-
-**Stop the container:**
-```bash
-docker stop acme-sql
-```
-
-**Start the container (after stopping):**
-```bash
-docker start acme-sql
-```
-
-**Remove the container (WARNING: This deletes all data):**
-```bash
-docker stop acme-sql
-docker rm acme-sql
-```
-
-**View container logs:**
-```bash
-docker logs acme-sql
-```
-
 ## ⚙️ Configuration
 
-The connection string is already configured in `src/Acme.Client/appsettings.json`:
+The connection string is already configured in `src/Acme.Api/appsettings.Development.json`:
 
 ```json
 "ConnectionStrings": {
@@ -78,12 +55,12 @@ The connection string is already configured in `src/Acme.Client/appsettings.json
 }
 ```
 
-**Note:** The API (`Acme.Api`) does not have a connection string configured. If needed, add the connection string to `src/Acme.Api/appsettings.json`.
-
 ## 🗄️ Database Setup
 
 ### Create Initial Migration
 
+* Please make sure Docker container is running for this to work *
+* 
 From the root directory, run:
 
 ```bash
@@ -102,37 +79,20 @@ This will create the `AcmeDraw` database and apply all migrations.
 
 The application consists of two parts that need to run simultaneously:
 
-### Option 1: Using Two Terminal Windows
-
-**Terminal 1 - Run the API:**
-```bash
-cd src/Acme.Api
-dotnet run
-```
-The API will start on `http://localhost:5093`
-
-**Terminal 2 - Run the Client:**
-```bash
-cd src/Acme.Client
-dotnet run
-```
-The Client will start on `http://localhost:5056`
-
-### Option 2: Using Visual Studio / Rider
+Using Visual Studio / Rider
 
 1. Open `Acme.Draw.slnx` in your IDE
 2. Configure multiple startup projects:
    - Right-click the solution → Properties
    - Select "Multiple startup projects"
    - Set both `Acme.Api` and `Acme.Client` to "Start"
-3. Press F5 or click Run
+3. Click Run
 
 ### Access the Application
 
 Once both are running:
 - **Web Application:** http://localhost:5056
 - **API:** http://localhost:5093
-- **API Documentation (Swagger):** http://localhost:5093/openapi/v1.json (in Development mode)
 
 ## 🧪 Running Tests
 
@@ -154,7 +114,7 @@ dotnet test tests/Acme.Tests/Acme.Tests.csproj
 AcmeCorpo/
 ├── src/
 │   ├── Acme.Api/          # Web API project
-│   ├── Acme.Client/       # Blazor Server web app
+│   ├── Acme.Client/       # Blazor Server Web App
 │   ├── Acme.Core/         # Business logic & data access
 │   └── Acme.Shared/       # Shared models
 ├── tests/
@@ -210,11 +170,6 @@ You can connect to the database using any SQL client:
 - **Authentication:** SQL Server Authentication
 - **Username:** `sa`
 - **Password:** `Str0ng?Pass123`
-
-Recommended tools:
-- [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) (cross-platform)
-- [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) (Windows only)
-- [DBeaver](https://dbeaver.io/) (cross-platform)
 
 ## 📝 License
 
