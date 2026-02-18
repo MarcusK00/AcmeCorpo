@@ -2,15 +2,20 @@
 
 ASP.NET (.NET 10) prize draw web application with EF Core, layered architecture, business rule validation, and unit tests.
 
-## 🏗️ Architecture
+## 📦 Project Structure
 
 This project follows a layered architecture pattern:
-
-- **Acme.Web** - Blazor Server web application (frontend)
-- **Acme.Api** - ASP.NET Core Web API (backend API)
-- **Acme.Core** - Business logic, services, data access, and EF Core
-- **Acme.Shared** - Shared models
-- **Acme.Tests** - Unit tests
+```
+AcmeCorpo/
+├── src/
+│   ├── Acme.Api/          # Web API project
+│   ├── Acme.Client/       # Blazor Server Web App
+│   ├── Acme.Core/         # Business logic & data access
+│   └── Acme.Shared/       # Shared models
+├── tests/
+│   └── Acme.Tests/        # Unit tests
+└── Acme.Draw.slnx         # Solution file
+```
 
 ## 📋 Prerequisites
 
@@ -117,20 +122,6 @@ Or to run tests in a specific project:
 
 ```bash
 dotnet test tests/Acme.Tests/Acme.Tests.csproj
-```
-
-## 📦 Project Structure
-
-```
-AcmeCorpo/
-├── src/
-│   ├── Acme.Api/          # Web API project
-│   ├── Acme.Client/       # Blazor Server Web App
-│   ├── Acme.Core/         # Business logic & data access
-│   └── Acme.Shared/       # Shared models
-├── tests/
-│   └── Acme.Tests/        # Unit tests
-└── Acme.Draw.slnx         # Solution file
 ```
 
 ## 🔧 Troubleshooting
