@@ -1,4 +1,4 @@
-using Acme.Core.DTOs;
+using Acme.Shared.DTOs;
 
 namespace Acme.Core.Interfaces;
 
