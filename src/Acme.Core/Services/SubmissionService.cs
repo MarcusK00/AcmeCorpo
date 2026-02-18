@@ -1,5 +1,5 @@
 using Acme.Core.Data;
-using Acme.Core.DTOs;
+using Acme.Shared.DTOs;
 using Acme.Core.Interfaces;
 using Acme.Core.Models;
 using Acme.Core.Persistence;
