@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Acme.Core.DTOs;
+namespace Acme.Shared.DTOs;
 
 public class SubmissionDto
 {

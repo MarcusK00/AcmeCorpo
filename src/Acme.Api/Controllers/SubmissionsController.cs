@@ -1,8 +1,8 @@
-using Acme.Core.DTOs;
+using Acme.Shared.DTOs;
 using Acme.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Acme.Web.Controllers;
+namespace Acme.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
