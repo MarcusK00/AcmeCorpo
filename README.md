@@ -75,18 +75,15 @@ The connection string is already configured in `src/Acme.Api/appsettings.Develop
 
 ### Create Initial Migration
 
-* Please make sure Docker container is running for this to work *
-* 
+- Please make sure Docker container is running for this to work 
 From the root directory, run:
 
 ```bash
-dotnet ef migrations add InitialCreate --project src/Acme.Core --startup-project src/Acme.Client
+dotnet ef migrations add InitialCreate --project src/Acme.Core --startup-project src/Acme.Api
+
 ```
-
-### Apply Migration to Database
-
 ```bash
-dotnet ef database update --project src/Acme.Core --startup-project src/Acme.Client
+dotnet ef database update --project src/Acme.Core --startup-project src/Acme.Api
 ```
 
 This will create the `AcmeDraw` database and apply all migrations.
