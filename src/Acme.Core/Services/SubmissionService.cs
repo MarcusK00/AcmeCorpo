@@ -15,20 +15,25 @@ public class SubmissionService : ISubmissionService
     {
         _submissionRepository = submissionRepository;
     }
+    
     public async Task<(bool Success, string? Error)> SubmitAsync(SubmissionDto dto)
     {
-        if (!IsAtLeast18(dto.DateOfBirth))
+        // Validate DateOfBirth is provided
+        if (!dto.DateOfBirth.HasValue)
+            return (false, "Date of birth is required.");
+
+        if (!IsAtLeast18(dto.DateOfBirth.Value))
             return (false, "You must be at least 18 years old.");
 
         var serialExists = await _submissionRepository.SerialExistsAsync(dto.SerialNumber!);
 
         if (!serialExists)
-            return (false,"Invalid serial number.");
+            return (false, "Invalid serial number.");
 
         var count = await _submissionRepository.GetSubmissionsCountAsync(dto.SerialNumber!);
 
         if (count >= 2)
-            return (false,"Serial number already used twice.");
+            return (false, "Serial number already used twice.");
 
         var submission = new Submission
         {
@@ -36,13 +41,13 @@ public class SubmissionService : ISubmissionService
             LastName = dto.LastName,
             Email = dto.Email,
             SerialCode = dto.SerialNumber,
-            BirthDate = dto.DateOfBirth,
+            BirthDate = dto.DateOfBirth.Value, // Use .Value since we've validated it exists
             SubmittedAt = DateTime.UtcNow
         };
 
         await _submissionRepository.AddSubmissionAsync(submission);
 
-        return (true,null);
+        return (true, null);
     }
 
     public async Task<List<Submission>> GetAllSubmissionsAsync()
