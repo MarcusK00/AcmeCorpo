@@ -737,6 +737,10 @@
             "MSTest": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
             }
           },
           "imports": [
