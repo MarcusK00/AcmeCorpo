@@ -1,5 +1,190 @@
 ﻿@page "/blog"
 
-<PageTitle>Blog</PageTitle>
+<PageTitle>Meet Marcus - My Introduction</PageTitle>
 
-My blog
+<div class="blog-container">
+    <article class="blog-post">
+        <header class="blog-header">
+            <h1>Meet Me!</h1>
+        </header>
+
+        <div class="blog-content">
+            <div class="intro-section">
+                <img src="/pictures/me.jpeg" alt="Photo of Marcus" class="profile-photo" />
+
+                <div class="intro-text">
+                    <p class="lead">
+                        Hi! My name is Marcus, I’m 25 years old, and I live in Odense. I’m the type of person who feels
+                        most at home when I’m either writing code, being active, or doing something outdoors (especially
+                        if it involves ducks).
+                    </p>
+                    <p>
+                        Right now I’m studying Datamatiker at UCL Erhvervsakademi, and I’m currently on my 4th semester.
+                        I really enjoy the problem-solving part of programming—taking something that looks complicated,
+                        breaking it down, and turning it into something that actually works.
+                    </p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2>Who am I?</h2>
+                <p>
+                    I'm Marcus-a student born with a curiosity for how things work and a pretty competitive mindset (mostly with myself).
+                    I come from a family with five siblings in total, so you could say I learned early on how to cooperate,
+                    speak up, and not give up when things get a little chaotic.
+                </p>
+                <p>
+                    I’m also a huge fan of chihuahuas. They have way more personality than their size suggests, and honestly,
+                    I love that.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>What do I do?</h2>
+                <p>
+                    Most of my time is split between studying and improving as a developer. I love programming because it’s a mix of
+                    creativity and logic—one moment you’re designing an idea, and the next you’re hunting down a bug that was caused
+                    by a missing character.
+                </p>
+                <p>
+                    Outside of school I’m very active. I enjoy working out in general, and I’m proud to say I’ve benched over 110 kg :D Training teaches discipline in a very direct way: you don’t “almost” get stronger—
+                    you show up consistently, and the results come.
+                </p>
+                <p>
+                    I’ve also worked as a kitchen manager for the past several years. It’s intense, fast-paced, and it teaches you
+                    a lot about responsibility, teamwork, and keeping a cool head when everything happens at once—skills that honestly
+                    carry over surprisingly well into software projects.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Why am I here?</h2>
+                <p>
+                    I’m here because I want to build real things that people can use—and because I enjoy the constant learning that comes
+                    with tech. My goal is to keep getting better at software development, strengthen my professional skills, and be the kind
+                    of teammate people can rely on.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Let’s connect!</h2>
+                <p>
+                    If you see me around (online or in real life), feel free to say hi. I’m always up for talking about chihuahuas,
+                    training, or sharing the best spots in Odense to go feed ducks :)
+                </p>
+            </section>
+        </div>
+    </article>
+</div>
+
+<style>
+    .blog-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+    }
+
+    .blog-post {
+        background: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .blog-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    .blog-header h1 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .intro-section {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .profile-photo {
+        width: 250px;
+        height: 250px;
+    }
+
+    .intro-text {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        color: #555;
+        line-height: 1.8;
+        margin-top: 0;
+    }
+
+    .content-section {
+        margin-bottom: 2rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.75rem;
+        color: #333;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .content-section p {
+        color: #555;
+        margin-bottom: 1rem;
+    }
+
+    .content-section ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .content-section li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #555;
+    }
+
+    .content-section li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #007acc;
+        font-weight: bold;
+    }
+
+    @@media (max-width: 768px) {
+        .blog-header h1 {
+            font-size: 2rem;
+        }
+
+        .intro-section {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+        }
+
+        .intro-text {
+            text-align: center;
+            min-width: unset;
+        }
+    }
+</style>
