@@ -31,7 +31,7 @@ This application uses a Docker container for SQL Server instead of a local insta
 
 # Getting Started
 
-### 1. Clone and Restory Repository
+### 1. Clone and Restore Repository
 
 1. Clone the repository: `git clone https://github.com/MarcusK00/AcmeCorpo.git`
 2. Navigate to the project: `cd AcmeCorpo`
