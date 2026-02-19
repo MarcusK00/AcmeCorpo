@@ -18,6 +18,7 @@ builder.Services.AddScoped<ISubmissionService, SubmissionService>();
 builder.Services.AddDbContext<AcmeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Added cors so client port can access api port. Will not work without this.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowClient", policy =>
@@ -38,12 +39,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// ✅ Use CORS
+
 app.UseCors("AllowClient");
 
 app.UseAuthorization();
 
-// ✅ Map Controllers - THIS WAS MISSING!
+
 app.MapControllers();
 
 app.Run();
