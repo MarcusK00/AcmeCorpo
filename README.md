@@ -120,6 +120,9 @@ Or to run tests in a specific project:
 ```bash
 dotnet test tests/Acme.Tests/Acme.Tests.csproj
 ```
+##  Serial Numbers
+
+First time the program is run, it will create a .txt file containing 100 serial keys in src/Acme.Api folder.
 
 ## 🔧 Troubleshooting
 
