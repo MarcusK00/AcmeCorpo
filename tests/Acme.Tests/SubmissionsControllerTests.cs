@@ -74,9 +74,5 @@ public class SubmissionControllerTests
         Assert.HasCount(2,dtos!);
         mockService.Verify(s=>s.GetAllSubmissionsAsync(), Times.Once);
     }
-
-
-    
-    
 }
     
