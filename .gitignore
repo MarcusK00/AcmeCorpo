@@ -1,0 +1,19 @@
+# Build results
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+TestResults/
+
+# Build artifacts
+*.dll
+*.pdb
+*.cache
+AssemblyInfo.cs
+*.DotSettings.user
