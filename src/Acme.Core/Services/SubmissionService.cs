@@ -18,7 +18,7 @@ public class SubmissionService : ISubmissionService
     
     public async Task<(bool Success, string? Error)> SubmitAsync(SubmissionDto dto)
     {
-        // Validate DateOfBirth is provided
+     
         if (!dto.DateOfBirth.HasValue)
             return (false, "Date of birth is required.");
 
@@ -41,7 +41,7 @@ public class SubmissionService : ISubmissionService
             LastName = dto.LastName,
             Email = dto.Email,
             SerialCode = dto.SerialNumber,
-            BirthDate = dto.DateOfBirth.Value, // Use .Value since we've validated it exists
+            BirthDate = dto.DateOfBirth.Value, 
             SubmittedAt = DateTime.UtcNow
         };
 
