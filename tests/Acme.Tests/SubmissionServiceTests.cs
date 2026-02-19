@@ -1,14 +1,8 @@
 ﻿using Acme.Core.Interfaces;
 using Acme.Core.Models;
 using Acme.Core.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using Moq;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Acme.Shared.DTOs;
-using Microsoft.Extensions.DependencyModel;
 
 namespace Acme.Tests;
 

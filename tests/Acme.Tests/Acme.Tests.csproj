@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Acme.Api\Acme.Api.csproj" />
     <ProjectReference Include="..\..\src\Acme.Core\Acme.Core.csproj" />
   </ItemGroup>
 
