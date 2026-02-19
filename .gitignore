@@ -17,3 +17,12 @@ TestResults/
 *.cache
 AssemblyInfo.cs
 *.DotSettings.user
+
+# JetBrider Rider / IntelliJ IDEA
+.idea/
+*.iml
+
+# Roslyn Code Analysis
+.editorconfig.DotSettings
+Microsoft.CodeAnalysis.Workspace*
+
