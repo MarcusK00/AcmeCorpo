@@ -1,23 +1,114 @@
 @page "/allsubs"
 @inject ISubmissionApiService ApiService
 
-@if (Submissions != null)
-{
-    @foreach (var a in Submissions)
+<div class="container my-4">
+    <h2 class="mb-4">All Submissions</h2>
+    
+    @if (Submissions != null && Submissions.Any())
     {
-        <h1>@a.FirstName</h1> <p>@a.SerialNumber</p>
-    }
-}
-<p>No Forms</p>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="text-muted mb-0">
+                Showing @((CurrentPage - 1) * PageSize + 1) - @Math.Min(CurrentPage * PageSize, Submissions.Count) of @Submissions.Count submissions
+            </p>
+        </div>
 
+        <div class="row g-3">
+            @foreach (var submission in PaginatedSubmissions)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@submission.FirstName @submission.LastName</h5>
+                            <hr />
+                            <div class="submission-details">
+                                <p class="mb-2">
+                                    <i class="bi bi-envelope"></i>
+                                    <strong>Email:</strong><br />
+                                    <a href="mailto:@submission.Email">@submission.Email</a>
+                                </p>
+                                <p class="mb-0">
+                                    <i class="bi bi-hash"></i>
+                                    <strong>Serial Number:</strong><br />
+                                    <span class="text-muted">@submission.SerialNumber</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (TotalPages > 1)
+        {
+            <nav aria-label="Submissions pagination" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
+                        <button class="page-link" @onclick="() => GoToPage(CurrentPage - 1)" disabled="@(CurrentPage == 1)">
+                            Previous
+                        </button>
+                    </li>
+
+                    @for (int i = 1; i <= TotalPages; i++)
+                    {
+                        var pageNumber = i;
+                        <li class="page-item @(CurrentPage == pageNumber ? "active" : "")">
+                            <button class="page-link" @onclick="() => GoToPage(pageNumber)">
+                                @pageNumber
+                            </button>
+                        </li>
+                    }
+
+                    <li class="page-item @(CurrentPage == TotalPages ? "disabled" : "")">
+                        <button class="page-link" @onclick="() => GoToPage(CurrentPage + 1)" disabled="@(CurrentPage == TotalPages)">
+                            Next
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        }
+    }
+    else if (Submissions == null)
+    {
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-3 text-muted">Loading submissions...</p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center" role="alert">
+            <i class="bi bi-info-circle"></i>
+            No submissions found.
+        </div>
+    }
+</div>
 
 @code {
     List<SubmissionDto>? Submissions { get; set; }
+    
+    private int CurrentPage { get; set; } = 1;
+    private int PageSize { get; set; } = 10;
+    
+    private int TotalPages => Submissions != null && Submissions.Any() 
+        ? (int)Math.Ceiling(Submissions.Count / (double)PageSize) 
+        : 0;
+    
+    private IEnumerable<SubmissionDto> PaginatedSubmissions => Submissions?
+        .Skip((CurrentPage - 1) * PageSize)
+        .Take(PageSize) ?? Enumerable.Empty<SubmissionDto>();
     
     protected override async Task OnInitializedAsync()
     {
         Submissions = await ApiService.GetAllAsync();
     }
 
-    
+    private void GoToPage(int page)
+    {
+        if (page >= 1 && page <= TotalPages)
+        {
+            CurrentPage = page;
+        }
+    }
 }
