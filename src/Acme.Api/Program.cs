@@ -1,4 +1,5 @@
 using Acme.Core.Data;
+using Acme.Core.Utilities;
 using Acme.Core.Interfaces;
 using Acme.Core.Persistence;
 using Acme.Core.Services;
@@ -18,6 +19,7 @@ builder.Services.AddScoped<ISubmissionService, SubmissionService>();
 builder.Services.AddDbContext<AcmeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
 // Added cors so client port can access api port. Will not work without this.
 builder.Services.AddCors(options =>
 {
@@ -30,6 +32,12 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope()) // Seeding the SerialNumbers to DB!
+{
+    var db = scope.ServiceProvider.GetRequiredService<AcmeDbContext>();
+    await SerialSeeder.SeedAsync(db);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
